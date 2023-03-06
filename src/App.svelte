@@ -10,12 +10,14 @@
 	onMount(async () => {
 	  auth0Client = await auth.createClient();
   
-	  isAuthenticated.set(await auth0Client.isAuthenticated());
-	  user.set(await auth0Client.getUser());
+	  isAuthenticated.set(await auth0Client.isAuthenticated);
+	  user.set(await auth0Client.getUser);
 	});
   
 	function login() {
 	  auth.loginWithPopup(auth0Client);
+	  //user.set(auth0Client.getUser);
+	  //isAuthenticated.set(auth0Client.isAuthenticated);
 	}
   
 	function logout() {
@@ -58,7 +60,7 @@
   <main>
 	<!-- App Bar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <a class="navbar-brand" href="/#">Task Manager</a>
+	  <a class="navbar-brand" href="/#">Availability Manager</a>
 	  <button
 		class="navbar-toggler"
 		type="button"
@@ -99,12 +101,12 @@
 		<div class="row">
 		  <div class="col-md-10 offset-md-1">
 			<div class="jumbotron">
-			  <h1 class="display-4">Task Management made Easy!</h1>
+			  <h1 class="display-4">Availability Collection Made Easy!</h1>
 			  <p class="lead">Instructions</p>
 			  <ul>
 				<li>Login to start &#128272;</li>
-				<li>Create Tasks &#128221;</li>
-				<li>Tick off completed tasks &#9989;</li>
+				<li>Select Availability &#128221;</li>
+				<li>Submit &#9989;</li>
 			  </ul>
   
 			  <a

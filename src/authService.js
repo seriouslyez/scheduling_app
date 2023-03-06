@@ -1,14 +1,14 @@
 
-import createAuth0Client from "@auth0/auth0-spa-js";
+import auth0 from "auth0-js";
 import {user, isAuthenticated, popupOpen} from "./store";
 import config from "../auth_config"; 
 
 
 
 async function createClient() {
-    let auth0Client = await createAuth0Client({
+    let auth0Client = new auth0.WebAuth({
         domain: config.domain,
-        client_id: config.clientId
+        clientID: config.clientId
       });
 
       return auth0Client
@@ -18,10 +18,10 @@ async function createClient() {
 async function loginWithPopup(client, options) {
     popupOpen.set(true);
     try {
-      await client.loginWithPopup(options);
+      await client.loginWithPopup;
 
-      user.set(await client.getUser());
-      isAuthenticated.set(true);
+      user.set(await client.getUser);
+      //isAuthenticated.set(true);
     } catch (e) {
       // eslint-disable-next-line
       console.error(e);
